@@ -22,7 +22,7 @@ public class EjercicioExtra {
 	}
 
 	public static void ejecutarProcesos() {
-
+		//Puedo instanciar un nuevo array para añadir los ejecutados y añadirlos al final de listaProcesos
 		//listaProcesos.set(listaProcesos.length);
 		System.out.println("Quedan " + listaProcesos.size() + " procesos por ejecutar");
 
@@ -67,6 +67,9 @@ public class EjercicioExtra {
 
 class Procesos2 {
 
+	private String nombre;
+	private int tiempo;
+	
 	public Procesos2(String nombre,int tiempo) {
 
 		this.nombre = nombre;
@@ -78,10 +81,15 @@ class Procesos2 {
 		return nombre ;
 		
 	}
+	
 	public int dameTiempo() {
 		return tiempo;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nombre: " + nombre + "; duracion: " + tiempo;
+	}
 
-	private String nombre;
-	private int tiempo;
+
 }
