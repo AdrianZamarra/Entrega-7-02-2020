@@ -1,82 +1,68 @@
 package Entrega7220;
 
 import java.util.*;
+
 public class Ejercicio2 {
-	
-	private static void muestraArray(int[][][] sueldo, String[] empresa, String[][] empleados) {
-		
-	    int salarioMedioMaxTotal = 0;
-	    String indiceTotal = "";
 
-	    // ITERO POR CADA EMPRESA
-	    for (int i = 0; i < sueldo.length; i++){
+	private static void MostrarArray(String empresa1[], int[][][] sueldos, String[][] empleados) {
 
-	        System.out.println("Empresa: " + empresa[i]);
-	        // VARIABLE STRING EN LA QUE SE GUARDARA LA CADENA QUE DIRA LOS ÍNDICES DE EMPLEADO CON SUELDO MEDIO MAS ALTO
-	        String indice = "";
+		int salMedMaxTot = 0;
+		int salMedMax = 0;
+		int salMed = 0;
+		int sumaSal = 0;
+		String pos = "";
+		String posMax = "";
 
-	        int salarioMedioMaximo = 0;
+		// Bucle plara mostrar nombre empresa
 
-	        // ITERO POR CADA EMPLEADO
-	        for (int j = 0; j < sueldo[i].length; j++){
-	            System.out.println("    Empleado: " + empleados[i][j]);
+		for (int y = 0; y < empresa1.length; y++) {
+			System.out.println("---------------------- \n EMPRESA: " + empresa1[y] + "\n----------------------");
 
-	            // VARIABLE QUE VA GUARDANDO LA SUMA DEL SALARIO
-	            int sumaSalario = 0;
+			for (int z = 0; z < 4; z++) {
+				System.out.println("==============================================\nEmpleado " + empleados[y][z] + "\n");
 
-	            // ITERO POR LOS MESES
-	            for (int z = 0; z < sueldo[i][j].length; z++){
+				for (int j = 0; j < 5; j++) {
+					System.out.println("El sueldo del mes " + (j + 1) + " : " + sueldos[y][z][j] + " €");
+					sumaSal += sueldos[y][z][j];
 
-	                System.out.print("        Sueldo del " + (z + 1) + "º mes: ");
-	                System.out.println(sueldo[i][j][z]);
-	                sumaSalario += sueldo[i][j][z];
+				}
+				salMed = sumaSal / sueldos[y][z].length;
+				System.out.println("----------------------\nSu salario medio es: " + salMed + " €");
+				sumaSal = 0;
+
+	            if (salMed > salMedMax){
+	                pos = "El empleado con el Sueldo medio mas alto es el : /" + y + ", " + z + "/";
+	                salMedMax = salMed;
 	            }
 
-	            // REALIZO EL SALARIO MEDIO
-	            int salarioMedio = sumaSalario / sueldo[i][j].length;
-
-	            // COMPRUEBO SI SU SALARIO MEDIO ES MAYOR QUE EL MAXIMO
-	            // SI ES ASÍ GUARDO SUS INDICES EN LA VARIABLE INDICE
-	            if (salarioMedio > salarioMedioMaximo){
-	                indice = "El empleado con el Sueldo medio mas alto es el : /" + i + ", " + j + "/";
-	                salarioMedioMaximo = salarioMedio;
+	            if(salMedMax > salMedMaxTot){
+	            	posMax = "El empleado de las tres empresas con el sueldo medio más alto es el : (" + y + ", " + z + ")";
+	            	salMedMaxTot = salMedMax;
 	            }
-
-	            if(salarioMedioMaximo > salarioMedioMaxTotal){
-	                indiceTotal = "Índices del array del empleado de las tres empresas con el sueldo medio más alto: [" + i + ", " + j + "]";
-	                salarioMedioMaxTotal = salarioMedioMaximo;
-	            }
-
-	            System.out.print("        El salario medio del trabajador es: ");
-	            System.out.println( salarioMedio);
-	            System.out.println("------------------------------------------------------------------");
-	        }
-	        System.out.println(indice);
-	        System.out.println("=============");
-
-	    }
-
-	    System.out.println(indiceTotal);
+	            
+			}
+			
+		}
+		System.out.println("=------------------------------------------------------=\n"+posMax);
 	}
 
 	public static void main(String[] args) {
-		
-		int[][][] sueldo = new int[3][4][5];
-		String[][] empleados = {{"Bryan", "Luis", "Aglaya", "Christian"}, {"Jorge", "Paul", "Niko", "Roberto"}, {"Julian", "Alberto", "Fabbio", "Enzo"}};
-		String [] empresa = {"Aporpizza","Telepizza","Dolce Vita"};
-		
-        Random r = new Random();
 
-        // RELLENO EL ARRAY CON NUMEROS ALEATORIOS
-        for (int i = 0; i < sueldo.length; i++){
-            for (int j = 0; j < sueldo[i].length; j++){
-                for (int z = 0; z < sueldo[i][j].length; z++){
-                    sueldo[i][j][z] = r.nextInt(2000) + 2000;
-                }
-            }
-        }
-		
-        muestraArray(sueldo,empresa,empleados);
+		String[] empresas = { "Aporpizza", "Telepizza", "Doce vita" };
+		String[][] empleados = { { "Bryan", "Aglaya", "Luis", "Cristhian" }, { "Jorge", "Paul", "Niko", "Raspe" },
+				{ "Fabbio", "Mario", "Luigi", "Maurizio" } };
+		int[][][] sueldos = new int[3][4][5];
+
+		Random r = new Random();
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 4; j++) {
+				for (int z = 0; z < 5; z++) {
+					sueldos[i][j][z] = r.nextInt(2000) + 2000;
+				}
+			}
+		}
+
+		MostrarArray(empresas, sueldos, empleados);
 		
 	}
 
