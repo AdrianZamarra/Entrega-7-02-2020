@@ -34,7 +34,7 @@ public class Ejercicio1 {
 				}
 
 			}
-			 ordenpalabras[count] = palabra[i];
+			ordenpalabras[count] = palabra[i];
 
 			count = 0;
 
@@ -44,5 +44,5 @@ public class Ejercicio1 {
 		}
 		s.close();
 	}
-	
+
 }

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Ejercicio3 {
 	private static ArrayList<Procesos> listaProcesos = new ArrayList<Procesos>();
-	 
+
 	private static Scanner s = new Scanner(System.in);
 
 	public static void añadirProcesos() {
@@ -13,7 +13,7 @@ public class Ejercicio3 {
 		System.out.println("Dame el nombre del proceso");
 		nameProcess = s.nextLine();
 		listaProcesos.add(new Procesos(nameProcess));
-		System.out.println("Has añadido "+listaProcesos.size()+" procesos");
+		System.out.println("Has añadido " + listaProcesos.size() + " procesos");
 
 	}
 
@@ -41,7 +41,8 @@ public class Ejercicio3 {
 
 			case 2:
 
-				System.out.println("-------------- \n Se va ha ejecutar el proceso: "+listaProcesos.get(0).dameDatos());
+				System.out
+						.println("-------------- \n Se va ha ejecutar el proceso: " + listaProcesos.get(0).dameDatos());
 				ejecutarProcesos();
 
 				break;
@@ -68,7 +69,7 @@ class Procesos {
 
 	public String dameDatos() {
 
-		return nombre ;
+		return nombre;
 	}
 
 	private String nombre;

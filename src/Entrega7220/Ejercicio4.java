@@ -5,7 +5,7 @@ import java.util.*;
 public class Ejercicio4 {
 	public static String[] Plantilla = new String[15];
 	public static String[] FreePlayers = { "Simon", "Herrerin", "Martinez", "Alvarez", "Nuñez", "Berchiche",
-			"Balenziaga", "Capa", "De Marcos", "Lekue", "San Jose", "Vesga", "Garcia", "Muniain", "Williams", "" };
+			"Balenziaga", "Capa", "De Marcos", "Lekue", "San Jose", "Vesga", "Garcia", "Kepa", "Williams", "" };
 	public static int[] Precio = new int[16];
 	public static int[] CostoPrecio = new int[16];
 	public static int contador = 0;
@@ -94,11 +94,8 @@ public class Ejercicio4 {
 		}
 
 		do {
-			System.out.println(
-					"---Menu de la liga--- \n"
-					+ "1.Jugadores libres y precios \n"
-					+ "2.Jugadores comprados y precio \n"
-					+ "3.Dinero disponible");
+			System.out.println("---Menu de la liga--- \n" + "1.Jugadores libres y precios \n"
+					+ "2.Jugadores comprados y precio \n" + "3.Dinero disponible");
 
 			System.out.println("---Seleccione una opcion---");
 
@@ -130,5 +127,5 @@ public class Ejercicio4 {
 		} while (option != -1200);
 		s.close();
 	}
-	
+
 }

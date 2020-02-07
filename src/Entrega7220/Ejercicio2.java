@@ -19,6 +19,7 @@ public class Ejercicio2 {
 			System.out.println("---------------------- \n EMPRESA: " + empresa1[y] + "\n----------------------");
 
 			for (int z = 0; z < 4; z++) {
+
 				System.out.println("==============================================\nEmpleado " + empleados[y][z] + "\n");
 
 				for (int j = 0; j < 5; j++) {
@@ -30,20 +31,21 @@ public class Ejercicio2 {
 				System.out.println("----------------------\nSu salario medio es: " + salMed + " €");
 				sumaSal = 0;
 
-	            if (salMed > salMedMax){
-	                pos = "El empleado con el Sueldo medio mas alto es el : /" + y + ", " + z + "/";
-	                salMedMax = salMed;
-	            }
+				if (salMed > salMedMax) {
+					pos = "El empleado con el Sueldo medio mas alto es el : /" + y + ", " + z + "/";
+					salMedMax = salMed;
+				}
 
-	            if(salMedMax > salMedMaxTot){
-	            	posMax = "El empleado de las tres empresas con el sueldo medio más alto es el : (" + y + ", " + z + ")";
-	            	salMedMaxTot = salMedMax;
-	            }
-	            
+				if (salMedMax > salMedMaxTot) {
+					posMax = "El empleado de las tres empresas con el sueldo medio más alto es el : (" + y + ", " + z
+							+ ")";
+					salMedMaxTot = salMedMax;
+				}
+
 			}
-			
+
 		}
-		System.out.println("=------------------------------------------------------=\n"+posMax);
+		System.out.println("=------------------------------------------------------=\n" + posMax);
 	}
 
 	public static void main(String[] args) {
@@ -63,7 +65,6 @@ public class Ejercicio2 {
 		}
 
 		MostrarArray(empresas, sueldos, empleados);
-		
 	}
 
 }
